@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="en">
+<head xmlns="http://www.w3.org/1999/xhtml">
+    <meta charset="UTF-8">
+    <title>Car Price Predictor</title>
+    <link rel="stylesheet" href="static/css/style.css">
+    <link rel="stylesheet" type="text/css"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+            integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+            crossorigin="anonymous"></script>
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+          integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@2.0.0/dist/tf.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
+
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+  <title>Car Price Predictor</title>
+  <link rel="stylesheet" type="text/css" href="car price prediction model.css">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.1/css/all.css" crossorigin="anonymous"> 
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Secular+One&display=swap');
+
+
+.predictor-bg{
+    background-image: url("https://static.pakwheels.com/2014/07/front-view-generic-brandless-moder-car_110488-502.jpg");
+    height: 500px;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+.background-h5{
+    font-family:"Lucida Sans Unicode";
+    margin-left:80px;
+    padding-top:120px;
+    color:#0F963D;
+}
+h2{
+    margin-left:80px;
+    color:white;
+}
+h1{
+    font-family:"Lucida Bright";
+    margin-left:80px;
+    color:white;
+}
+.p{
+    margin-left:80px;
+    color:white;
+}
+h6{
+    font-family: "Times New Roman";
+    color: white;
+   text-align: center;
+   padding-top: 20px; 
+}
+.predict-price{
+    background-color: #99CF26;
+    padding: 7px;
+    margin-left: 80px;
+    font-family:"Lucida Sans Unicode";
+    font-size: 13px;
+}
+/*----------------------------------About------------------------------------*/
+.parallax{
+    background-image: url(https://www.wallpapertip.com/wmimgs/102-1027913_1920x1080-dark-black-lamborghini-car-wallpaper-hd-black.jpg);
+    width: 100%;
+    padding-left: 0;
+    min-height: 600px;
+    position: relative;
+    background-attachment: fixed;
+    background-position: right;
+    background-repeat: no-repeat;
+    background-size: cover;
+    opacity: 0.8;
+    margin-top: 100px;
+}
+
+.parallax span{
+    background-color: transparent;
+    font-size: 30px;
+    font-weight: bold;
+    color: rgba(255, 255, 255, 0.877);
+}
+.caption{
+    position: absolute;
+    left: 0;
+    top: 30%;
+    width: 100%;
+    height: 100%;
+    font-family: 'Zilla Slab', serif;
+    text-align: center;
+}
+/*------------------------predictor-----------------------------------*/
+.predictor-card{
+    margin-top: 350px;
+}
+.card{
+    background-color: #315B5D;
+}
+.card-body-h5{
+    margin-top: 10px;
+}
+.predict-price-btn{
+    margin-top: 30px;
+    background-color: #99CF26;
+    color: #315B5D;
+    height: 50px;
+    width: 98%;
+    font-family: 'Secular One', sans-serif;
+}
+.predict-price-btn:hover{
+    background-color: floralwhite;
+    color: #99CF26;
+}
+select{
+
+    margin-left: 80px;
+}
+input{
+    margin-left: 220px;
+    margin-top: 30px;
+}
+.selectpicker{
+    margin-top: 30px;
+
+    width: 800px;
+    margin-left: 125px;
+}
+.form-control{
+    width: 800px;
+}
+#prediction{
+    background-color: white;
+}
+
+/*---------------------------Contact-----------------------------*/
+body{
+    background-color: black;
+}
+.contact-head{
+    text-align: center;
+    
+    margin-top: 100px;
+}
+.contact-card{
+    float: right;
+    margin-bottom: 50px;
+    margin-top: 50px;
+    width: 50%;
+    margin-right: 60px;
+}
+
+.contact-card input,textarea{
+    width:500px;
+    height: 50px;
+    margin:10px 100px 20px 100px;
+    border-radius: 10px;
+
+}
+textarea{
+    height:100px
+}
+.send-button{
+    background-color: #99CF26;
+    color: #315B5D;
+    height: 50px;
+    width: 40%;
+    font-family: 'Secular One', sans-serif;
+    border-radius: 10px;
+    margin-left: 200px;
+    margin-bottom: 50px;
+}
+img{
+    height: 500px;
+    width: 500px;
+    margin-left:50px;
+}
+
+/*--------------------Footer----------------------*/
+footer{
+    
+    height: 500px;
+    color: white;
+    width: 100%;
+    right: 0;bottom:0;left:0;
+    margin-top: 150px;
+}
+
+footer h4{
+    font-weight: bold;
+}
+.about{
+    text-align: justify;
+    width: 400px;
+    padding-left: 50px;
+    padding-top: 30px;
+    display: inline-block;
+}
+
+
+
+.get_to_know{
+    text-align: justify;
+    width: 400px;
+    padding-left: 10%;
+    margin-top: 40px;
+    display: inline-block;
+}
+.get_to_know a{
+    color: white;
+    font-size: 16px;
+}
+.get_to_know a:hover{
+    color: #fcf8e3;
+}
+
+.customer_support{
+    margin-bottom: 30px;
+    display: inline-block;
+    margin-left: 65%;
+    padding-top: 0;
+}
+
+
+.customer_support_content{
+    padding-left: 80px;
+}
+.bottom {
+    margin-left: 50px;
+    margin-right: 50px;
+    height: 350px;
+    bottom: 80px;
+    border-bottom: 2px solid #fff;
+}
+.copyright{
+    font-size: 16px;
+    padding-top: 2%;
+    bottom: 0;
+    text-align: center;
+}
+  </style>
+
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#home">Car Price Predictor</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mb-2 mb-lg-0">
+                    <li class="nav-item">
+      <a class="nav-link active" aria-current="page" href="#">Home</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="#about">About</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="#contactus">Contact</a>
+    </li>
+     <li class="nav-item">
+      <a class="nav-link" href="#predictor">Predictor</a>
+    </li>
+
+                </ul>
+            </div>
+        </div>
+    </nav>
+<!-----------------background--------------------------------->
+<div class="container-fluid predictor-bg" id='home' >
+            <h5 class="background-h5">SELL YOUR CAR AT A BEST PRICE</h5>
+            <h2>MOST-RELIABLE</h2>
+            <h1>PRICE</h1>
+            <p class='p'>PREDICTOR</p>
+            <button class='predict-price'>Predict Price</button>
+
+           
+ <!---------------------------Predictor-------------------------------------------->
+
+<div class="container predictor-card" id="predictor">
+    <div class="row">
+        <div class="card" style="width: 100%; height: 100%">
+            
+                <h3 style="text-align:center; margin-top: 50px;color: white;">Predict Your Car Price</h3>
+            
+            <div class="card-body">
+                    
+                
+                <form method="post" accept-charset="utf-8" name="Modelform">
+                    <div class="col-md-10 form-group" style="text-align: center">
+                        
+                        <select class="selectpicker form-control" id="company" name="company" required="1">
+                            {% for company in companies %}
+                            <option value="{{ company }}">{{ company }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                    <div class="col-md-10 form-group" style="text-align: center">
+                       
+                        <select class="selectpicker form-control" id="car_models" name="car_models" required="1">
+                            {% for model in car_models %}
+                            <option value="{{ model }}">{{ model }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                    <div class="col-md-10 form-group" style="text-align: center">
+                        
+                        <select class="selectpicker form-control" id="year" name="year" required="1">
+                            {% for year in years %}
+                            <option value="{{ year }}">{{ year }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                    <div class="col-md-10 form-group" style="text-align: center">
+                        
+                        <select class="selectpicker form-control" id="fuel_type" name="fuel_type" required="1">
+                            {% for fuel in fuel_types %}
+                            <option value="{{ fuel }}">{{ fuel }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                    <div class="col-md-10 form-group" style="text-align: center left; margin-left: -95px;">
+            
+                        <input type="text" class="form-control" id="kilo_driven" name="kilo_driven"
+                               placeholder="Enter the kilometres driven ">
+                    </div>
+                    <div class=" form-group" style="text-align: center">
+                        <button  class="btn btn-primary predict-price-btn form-control" onclick="send_data()">Predict Price</button>
+                    </div>
+                </form>
+                <br>
+                <div class="row">
+                    <div class="col-12" style="text-align: center">
+                        <h4><span id="prediction"></span></h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+               
+    <!----------------------------About------------------------------------------->
+<div class="parallax"  id='about'>
+    <div class="caption">
+        <h2>ABOUT US</h2>
+        <br/>
+        <br/>
+        <span >Car price predictor is a web based application which lets you to predict the worth of your car in terms
+            of price depending on the information
+            provided about your car. This is an up to date application, if you want to buy or sell a car, you can enter the details
+            about the car and this application will tell you the correct worth according to the specification.</span>
+    </div>
+</div>
+
+
+<!------------------------Contact------------------------------------------->
+
+<div  id='contactus'>
+    <h2 class='contact-head'>Want to Contact Us ?</h2>
+    <img src="https://thumbs.dreamstime.com/b/contact-us-icon-logo-call-contact-us-contacts-email-message-dark-background-white-contact-us-icon-logo-call-contact-us-132604622.jpg" />
+    <div class='container-fluid contact-card'>
+        <input type="text" placeholder="First Name"><br/>
+        <input type="text" placeholder="Last Name"><br/>
+        <input type="text" placeholder="What's your email?"><br/>
+        <textarea type="text" placeholder="Any queries?"></textarea><br/>
+        <button class='send-button'>SEND MESSAGE</button>
+    </div>
+</div>
+
+
+<!------------------------Footer------------------------------------------------>
+<footer class="navbar-dark bg-dark">
+<div class="bottom">
+
+<div class="about">
+<h4>ABOUT US</h4>
+<br/>
+<strong>Email :</strong>
+izmaqamar6@gmail.com
+<br/>
+<br/>
+<strong>Phone :</strong>
+0335-2100418
+<br/>
+<br/>
+<strong>Whatsapp :</strong>
+0315-0222351
+<br/>
+<br/>
+
+</div>
+
+<div class=" get_to_know">
+<h4>GET TO KNOW US</h4>
+<br/>
+<a href="#">Facebook</a>
+<br/>
+<br/>
+<a href="#">Instagram</a>
+<br/>
+<br/>
+<a href="#">Twitter</a>
+<br/>
+<br/>
+<a href="#">Subscribe</a>
+<br/>
+<br/>
+</div>
+
+
+
+
+</div>
+
+
+
+
+<div class="row copyright">
+<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+<p>Copyright © 2018 Organics Sphere All rights reserved.</p>
+</div>
+</div>
+</footer>
+
+
+
+<script>
+
+    function form_handler(event) {
+        event.preventDefault(); // Don't submit the form normally
+    }
+    function send_data()
+    {
+        document.querySelector('form').addEventListener("submit",form_handler);
+
+        var fd=new FormData(document.querySelector('form'));
+
+        var xhr= new XMLHttpRequest({mozSystem: true});
+
+        xhr.open('POST','/predict',true);
+        document.getElementById('prediction').innerHTML="Wait! Predicting Price.....";
+        xhr.onreadystatechange = function(){
+            if(xhr.readyState == XMLHttpRequest.DONE){
+                document.getElementById('prediction').innerHTML="Prediction: Rs."+xhr.responseText;
+
+            }
+        };
+
+        xhr.onload= function(){};
+
+        xhr.send(fd);
+    }
+</script>
+
+
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+        integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
+        crossorigin="anonymous"></script>
+</body>
+</html>
